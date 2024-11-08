@@ -1,21 +1,37 @@
-
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import AboutUs from './components/AboutUs';
-import Discover from './components/Discover';
-import Header from './components/Header';
+
 import Home from './components/Home';
-import Services from './components/Services';
+import BookNow from './components/BookNow';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
+import BookingConfirmed from './components/BookingConfirmed';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Home />
-      <Discover />
-     <Services />
-      <AboutUs />
-    </div>
+      <Provider store={appStore}>
+        <RouterProvider router={appRouter}>
+          <Home />
+        </RouterProvider>
+    </Provider>
+  </div>
   );
 }
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/booknow",
+    element: <BookNow />,
+  },
+  {
+    path: "/bookingconfirmed",
+    element: <BookingConfirmed/>,
+  },
+]);
 
 export default App;
