@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutUs = () => {
   return (
-    <div class="p-20 mt-20">
+    <div class="ml-20 mt-20">
         <div>
             <h1 class="font-bold text-2xl ">Brisphere</h1>
             <p> Spituk, Ladakh </p>

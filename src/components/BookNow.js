@@ -71,8 +71,8 @@ const BookNow = () => {
   return (
     <>
       <Header />
-      <div className="book-now-modal bg-white p-4 rounded shadow-md">
-        <div className="flex flex-wrap justify-between">
+      <div className=" bg-white p-24 rounded shadow-md">
+        <div className="flex flex-wrap justify-between ml-44">
           <div className="flex flex-row mb-4">
             <input
               type="text"
@@ -90,7 +90,7 @@ const BookNow = () => {
             />
           </div>
         </div>
-        <div className="flex">
+        <div className="flex ml-48">
           <div className="flex flex-col mb-4">
             <input
               type="tel"
@@ -125,6 +125,7 @@ const BookNow = () => {
             </div>
           </div>
         </div>
+        <div className='pl-52 flex justify-center mt-8'>
         <div className="bg-white p-14 rounded-lg flex w-[1200px] border border-gray-300">
           <div className="flex flex-col items-center mr-24">
             <label htmlFor="checkin">CHECK-IN</label>
@@ -149,6 +150,7 @@ const BookNow = () => {
               </button>
             </span>
           </div>
+        </div>
         </div>
         <AboutUs />
       </div>
