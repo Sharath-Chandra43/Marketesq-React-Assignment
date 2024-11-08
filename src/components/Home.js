@@ -10,8 +10,8 @@ const Home = () => {
             <h1 class="text-6xl font-roboto text-black w-2">Work From Ladakh</h1>
             <p class="mt-5">India's first true digital tourism ecosystem</p>
             <div class="flex p-4">
-            <FaFacebook />
-            <AiFillInstagram />
+            <FaFacebook size='32'/>
+            <AiFillInstagram size='32'className='ml-6' />
             </div>
           </div>
             <div class="image-container">

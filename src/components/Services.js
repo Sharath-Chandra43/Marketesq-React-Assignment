@@ -1,28 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { IoWifiOutline, IoHomeSharp, IoBicycle, IoMapSharp, IoCartSharp } from 'react-icons/io5';
-import { FaBurger } from "react-icons/fa6";
-import { FaCarAlt, FaFlag } from "react-icons/fa";
+import ServiceContainer from './ServiceContainer';
 
-const ServicesContainer = ({ icon, heading, description }) => {
-  const IconComponent = {
-    IoWifiOutline: IoWifiOutline,
-    FaBurger: FaBurger,
-    IoHomeSharp: IoHomeSharp,
-    FaCarAlt: FaCarAlt,
-    IoBicycle: IoBicycle,
-    IoMapSharp: IoMapSharp,
-    FaFlag: FaFlag,
-    IoCartSharp: IoCartSharp
-  }[icon];
 
-  return (
-    <div className="flex flex-wrap">
-      {IconComponent && <IconComponent />}
-      <h3>{heading}</h3>
-      <p>{description}</p>
-    </div>
-  );
-};
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -36,6 +15,7 @@ const Services = () => {
         }
         const json = await response.json();
         setServices(json);
+        console.log(json);
       } catch (error) {
         console.error('Error fetching services:', error);
       }
@@ -45,14 +25,18 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="p-52">
-      <h1 className="font-mono text-3xl text-center text-black">Services</h1>
-      <div className="flex flex-wrap">
-        {services.map((service) => (
-          <div key={service.id} className="service-item">
-            <ServicesContainer key={service.id} data={service} />
-          </div>
-        ))}
+    <div className="p-10">
+      <h1 className="font-mono text-3xl text-center text-black mb-9">Services</h1>
+    <div className='container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+        {services.length > 0 ? (  // Check if services array has elements
+          services.map((service) => (
+            <div key={service?.id} className="container mx-auto flex flex-wrap">
+              <ServiceContainer key={service.id} data={service} />
+            </div>
+          ))
+        ) : (
+          <p>Loading services...</p>
+        )}
       </div>
     </div>
   );
