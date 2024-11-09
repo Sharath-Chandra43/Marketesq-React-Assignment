@@ -71,87 +71,117 @@ const BookNow = () => {
   return (
     <>
       <Header />
-      <div className=" bg-white p-24 rounded shadow-md">
-        <div className="flex flex-wrap justify-between ml-44">
-          <div className="flex flex-row mb-4">
-            <input
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={handleNameChange}
-              className="border mr-96 rounded px-2 py-1 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={handleEmailChange}
-              className="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+<div className="bg-white p-4 rounded shadow-md">
+  <div className="md:flex md:flex-wrap md:justify-between md:ml-4">
+    <div className="md:flex md:flex-row md:mb-4">
+      <input
+        type="text"
+        placeholder="Name"
+        value={name}
+        onChange={handleNameChange}
+        className="w-full md:w-1/2 border rounded px-2 py-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={handleEmailChange}
+        className="w-full md:w-1/2 border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+  </div>
+  <div className="md:flex md:ml-4">
+    <div className="md:flex md:flex-col md:mb-4">
+      <input
+        type="tel"
+        placeholder="Phone Number"
+        value={phone}
+        onChange={handlePhoneChange}
+        className="w-full border rounded px-2 py-1 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+    <div className="md:flex">
+      <div className="md:flex md:justify-between md:mb-4">
+        <div className="md:flex md:items-center">
+          <label className="md:mr-2 md:ml-8">Adults:</label>
+          <input
+            type="number"
+            min="1"
+            value={adults}
+            onChange={handleAdultsChange}
+            className="w-full md:w-1/2 border rounded px-2 py-1 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
-        <div className="flex ml-48">
-          <div className="flex flex-col mb-4">
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              value={phone}
-              onChange={handlePhoneChange}
-              className="border rounded px-2 py-1 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div className='flex'>
-            <div className="flex justify-between mb-4">
-              <div className="flex items-center">
-                <label className="mr-2 ml-8">Adults:</label>
-                <input
-                  type="number"
-                  min="1"
-                  value={adults}
-                  onChange={handleAdultsChange}
-                  className="border rounded px-2 py-1 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div className="flex items-center">
-                <label className="mr-2">Children:</label>
-                <input
-                  type="number"
-                  min="0"
-                  value={children}
-                  onChange={handleChildrenChange}
-                  className="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-            </div>
-          </div>
+        <div className="md:flex md:items-center">
+          <label className="mr-2">Children:</label>
+          <input
+            type="number"
+            min="0"
+            value={children}
+            onChange={handleChildrenChange}
+            className="w-full md:w-1/2 border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
-        <div className='pl-52 flex justify-center mt-8'>
-        <div className="bg-white p-14 rounded-lg flex w-[1200px] border border-gray-300">
-          <div className="flex flex-col items-center mr-24">
-            <label htmlFor="checkin">CHECK-IN</label>
-            <input type="date" id="checkin" className="border border-gray-300 p-2 rounded" onChange={handleCheckinDate}/>
-          </div>
-          <div className="flex items-col flex-col mr-24 ">
-            <label htmlFor="checkout">CHECK-OUT</label>
-            <input type="date" id="checkout" className="border border-gray-300 p-2 rounded" onChange={handleCheckOutDate} />
-          </div>
-          <div className="flex flex-col items-center">
-            <h1>ROOMS</h1>
-            <div className="flex">
-              <button className="bg-white-500 hover:bg-white-700 text-black font-bold py-2 px-4 rounded-lg ml-2" disabled={rooms <= 1} onClick={() => handleRoomsChange(-1)}>-</button>
-              <span className="text-lg font-bold">{rooms}</span>
-              <button className="bg-white-500 hover:bg-white-700 text-black font-bold py-2 px-4 rounded-lg ml-2" onClick={() => handleRoomsChange(1)}>+</button>
-            </div>
-          </div>
-          <div className="flex justify-center items-center relative">
-            <span>
-              <button className="bg-blue-900 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"  fdprocessedid="wwq2e" >₹ {price}
-                <FaArrowRight className='bg-blue-950  h-10 rounded text-white absolute top-3.5 left-20' onClick={handleBookNow} />   
-              </button>
-            </span>
-          </div>
-        </div>
-        </div>
+      </div>
+    </div>
+  </div>
+  <div className="bg-white p-4 rounded-lg flex flex-col md:flex-row md:items-center md:justify-between w-full md:w-[1200px] border border-gray-300">
+  <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
+    <div className="flex flex-col">
+      <label htmlFor="checkin">CHECK-IN</label>
+      <input
+        type="date"
+        id="checkin"
+        className="border border-gray-300 p-2 rounded"
+        onChange={handleCheckinDate}
+      />
+    </div>
+    <div className="flex flex-col">
+      <label htmlFor="checkout">CHECK-OUT</label>
+      <input
+        type="date"
+        id="checkout"
+        className="border border-gray-300 p-2 rounded"
+        onChange={handleCheckOutDate}
+      />
+    </div>
+  </div>
+  <div className="flex flex-col md:flex-row md:items-center md:space-x-2">
+    <div className="flex flex-col ">
+      <h1 className="text-lg font-bold ">ROOMS</h1>
+      <div className="flex">
+        <button
+          className="bg-white-500 hover:bg-white-700 text-black font-bold py-2 px-4 rounded-lg ml-2"
+          disabled={rooms <= 1}
+          onClick={() => handleRoomsChange(-1)}
+        >
+          -
+        </button>
+        <span className="text-lg font-bold">{rooms}</span>
+        <button
+          className="bg-white-500 hover:bg-white-700 text-black font-bold py-2 px-4 rounded-lg ml-2"
+          onClick={() => handleRoomsChange(1)}
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div className="flex  justify-center items-center relative sm:pl-0 sm:pr-[500px] ">
+      <div className='flex'>
+        <button
+          className="bg-blue-900 hover:bg-blue-900 text-white font-bold py-2 px-4 sm:w-[150px]  rounded"
+          fdprocessedid="wwq2e"
+        >
+          ₹ {price}
+          <FaArrowRight
+            className="bg-blue-950 h-10 rounded text-white md:absolute md:top-0 size-11  left-36"
+            onClick={handleBookNow}
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
         <AboutUs />
       </div>
     </>
